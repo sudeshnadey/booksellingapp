@@ -166,7 +166,7 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                 ),
                                 Container(
-                                  height: 180,
+                                  height: 160,
                                   decoration: BoxDecoration(
                                       boxShadow: const [
                                         BoxShadow(

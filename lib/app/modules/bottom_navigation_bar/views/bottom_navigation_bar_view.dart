@@ -2,6 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ssgc/app/modules/account/views/account_view.dart';
+import 'package:ssgc/app/modules/cart/views/cart_view.dart';
+import 'package:ssgc/app/modules/purchase/views/purchase_view.dart';
 
 import '../../../widgets/app_color.dart';
 import '../../home/views/home_view.dart';
@@ -15,12 +18,13 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
       fontSize: 12);
 
   final TextStyle selectedLabelStyle = const TextStyle(
-      color: Colors.white, fontWeight: FontWeight.w400, fontSize: 13);
+      color: Colors.white, fontWeight: FontWeight.w400, fontSize: 12);
   buildBottomNavigationMenu(context, bcontroller) {
     return Obx(() => MediaQuery(
         data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 10),
+          padding:
+              const EdgeInsets.only(top: 5, bottom: 2, left: 12, right: 12),
           decoration: BoxDecoration(
               boxShadow: const [
                 BoxShadow(
@@ -30,7 +34,8 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
                     offset: Offset(1, 1)),
               ],
               color: AppColor.backgroundColor,
-              borderRadius: BorderRadius.circular(25)),
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(25), topRight: Radius.circular(25))),
           // height: 65.sp,
           child: BottomNavigationBar(
             elevation: 0,
@@ -83,7 +88,10 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
           () => IndexedStack(
             index: controller.tabIndex.value,
             children: [
-               HomeView(),
+              HomeView(),
+              const PurchaseView(),
+              const CartView(),
+              const AccountView()
             ],
           ),
         ),
@@ -98,7 +106,7 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
         builder: (BuildContext context) {
           return AlertDialog(
             content: SizedBox(
-              height: 160,
+              height: 120,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 // crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,6 +120,7 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
                             exit(0);
                           },
                           style: ElevatedButton.styleFrom(
+                            
                               backgroundColor: AppColor.mainColor),
                           child: const Text("Yes"),
                         ),
@@ -123,10 +132,10 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
                           Navigator.of(context).pop();
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
+                          backgroundColor: AppColor.buttoncolor,
                         ),
                         child: const Text("No",
-                            style: TextStyle(color: Colors.black)),
+                            style: TextStyle(color: Colors.white)),
                       ))
                     ],
                   )

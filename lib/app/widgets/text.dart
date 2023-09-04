@@ -60,7 +60,7 @@ class BigText extends StatelessWidget {
               color: color,
               fontSize: size,
               height: height,
-              fontWeight: FontWeight.bold),
+              fontWeight: FontWeight.w500),
         ));
   }
 }

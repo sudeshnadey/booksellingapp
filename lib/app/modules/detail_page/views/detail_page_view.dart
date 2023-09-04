@@ -20,12 +20,23 @@ class DetailPageView extends GetView<DetailPageController> {
           title: BigText(text: "Current Details"),
           centerTitle: true,
           leading: IconButton(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             icon: const Icon(Icons.arrow_back_ios),
             color: Colors.black,
             onPressed: () {
               Get.back();
             },
           ),
+          actions: [
+            IconButton(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              icon: const Icon(Icons.bookmark_border_outlined),
+              color: Colors.black,
+              onPressed: () {
+                print("BookMarked!!");
+              },
+            ),
+          ],
           bottom: TabBar(
             indicatorSize: TabBarIndicatorSize.label,
             indicatorColor: AppColor.mainColor,
@@ -59,8 +70,8 @@ class DetailPageView extends GetView<DetailPageController> {
           ),
         ),
         body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          child: TabBarView(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: const TabBarView(
             children: [
               SingleChildScrollView(
                 child: Column(

@@ -19,4 +19,9 @@ class AppImage {
   static var video_lecture = "assets/images/video_lecture.png";
 
   static var demo = "assets/images/demo.jpg";
+
+  static var search = "assets/images/search.png";
+  static var empty_cart = "assets/images/empty_cart.png";
+  static var wishlist = "assets/images/wishlist.png";
+  static var person = "assets/images/person.png";
 }

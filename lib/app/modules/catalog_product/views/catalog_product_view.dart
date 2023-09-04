@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:ssgc/app/modules/all_products/views/all_products_view.dart';
+import 'package:ssgc/app/modules/product_detail/views/product_detail_view.dart';
 
 import '../../../data/app_image.dart';
 import '../../../utils/categories.dart';
@@ -10,7 +11,7 @@ import '../controllers/catalog_product_controller.dart';
 
 class CatalogProductView extends GetView<CatalogProductController> {
   final String text;
-  CatalogProductView({
+  const CatalogProductView({
     Key? key,
     required this.text,
   }) : super(key: key);
@@ -47,8 +48,11 @@ class CatalogProductView extends GetView<CatalogProductController> {
               child: ListView.builder(
                   itemCount: Categories.categories.length,
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) =>
-                      CatalogProductCard(index: index)),
+                  itemBuilder: (context, index) => GestureDetector(
+                      onTap: () {
+                        Get.to(() => const ProductDetailView());
+                      },
+                      child: CatalogProductCard(index: index))),
             )
           ],
         ),
@@ -60,7 +64,7 @@ class CatalogProductView extends GetView<CatalogProductController> {
 class CatalogProductCard extends StatelessWidget {
   final int index;
 
-  CatalogProductCard({
+  const CatalogProductCard({
     super.key,
     required this.index,
   });
@@ -70,7 +74,7 @@ class CatalogProductCard extends StatelessWidget {
     return Container(
         width: 150,
         margin: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             // color: Colors.white,
             // borderRadius: BorderRadius.circular(10),
             // boxShadow: const [
