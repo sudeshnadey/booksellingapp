@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:ssgc/app/data/app_image.dart';
 import 'package:ssgc/app/modules/detail_page/views/detail_page_view.dart';
+import 'package:ssgc/app/modules/e_book_details/views/e_book_details_view.dart';
 import 'package:ssgc/app/utils/categories.dart';
 import 'package:ssgc/app/widgets/app_color.dart';
 
@@ -27,15 +28,17 @@ class HomeView extends GetView<HomeController> {
                 child: Column(
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsets.only(left: 10, right: 10, top: 10),
+                      padding: const EdgeInsets.only(
+                        left: 10,
+                        right: 10,
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           BigText(text: "Ghatana Chakra"),
-                          const SizedBox(
-                            width: 70,
-                          ),
+                          // const SizedBox(
+                          //   width: 70,
+                          // ),
                           Row(
                             children: [
                               Container(
@@ -55,7 +58,7 @@ class HomeView extends GetView<HomeController> {
                                     color: Colors.white,
                                   )),
                               const SizedBox(
-                                width: 25,
+                                width: 15,
                               ),
                               Container(
                                   padding: const EdgeInsets.all(8),
@@ -98,7 +101,25 @@ class HomeView extends GetView<HomeController> {
                           height: 200,
                           child: PageView.builder(
                               controller: homeController.controller,
-                              itemBuilder: _buildListItem),
+                              itemBuilder: (context, index) {
+                                return GestureDetector(
+                                  onTap: () {
+                                    Get.to(() => const EBookDetailsView());
+                                  },
+                                  child: SizedBox(
+                                    child: Card(
+                                      child: ClipRRect(
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(10)),
+                                        child: Image.asset(
+                                          AppImage.banner,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }),
                         ),
                         const SizedBox(
                           height: 10,

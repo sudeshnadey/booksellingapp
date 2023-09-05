@@ -23,7 +23,7 @@ class SmallText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(text,
-        style: GoogleFonts.lato(
+        style: GoogleFonts.openSans(
           // text-decoration: TextDecoration(),
           textStyle: TextStyle(
             decoration: textDecoration,
@@ -53,7 +53,7 @@ class BigText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(text,
-        style: GoogleFonts.roboto(
+        style: GoogleFonts.openSans(
           // text-decoration: TextDecoration(),
           textStyle: TextStyle(
               decoration: textDecoration,

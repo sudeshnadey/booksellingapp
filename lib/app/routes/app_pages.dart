@@ -10,8 +10,12 @@ import '../modules/cart/bindings/cart_binding.dart';
 import '../modules/cart/views/cart_view.dart';
 import '../modules/catalog_product/bindings/catalog_product_binding.dart';
 import '../modules/catalog_product/views/catalog_product_view.dart';
+import '../modules/change_password/bindings/change_password_binding.dart';
+import '../modules/change_password/views/change_password_view.dart';
 import '../modules/detail_page/bindings/detail_page_binding.dart';
 import '../modules/detail_page/views/detail_page_view.dart';
+import '../modules/e_book_details/bindings/e_book_details_binding.dart';
+import '../modules/e_book_details/views/e_book_details_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/membership/bindings/membership_binding.dart';
@@ -22,6 +26,8 @@ import '../modules/product_detail/bindings/product_detail_binding.dart';
 import '../modules/product_detail/views/product_detail_view.dart';
 import '../modules/purchase/bindings/purchase_binding.dart';
 import '../modules/purchase/views/purchase_view.dart';
+import '../modules/reviews_all/bindings/reviews_all_binding.dart';
+import '../modules/reviews_all/views/reviews_all_view.dart';
 import '../modules/wishlist/bindings/wishlist_binding.dart';
 import '../modules/wishlist/views/wishlist_view.dart';
 
@@ -94,6 +100,28 @@ class AppPages {
       name: _Paths.PRODUCT_DETAIL,
       page: () => const ProductDetailView(),
       binding: ProductDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.E_BOOK_DETAILS,
+      page: () => const EBookDetailsView(),
+      binding: EBookDetailsBinding(),
+      children: [
+        GetPage(
+          name: _Paths.E_BOOK_DETAILS,
+          page: () => const EBookDetailsView(),
+          binding: EBookDetailsBinding(),
+        ),
+      ],
+    ),
+    GetPage(
+      name: _Paths.REVIEWS_ALL,
+      page: () => const ReviewsAllView(),
+      binding: ReviewsAllBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHANGE_PASSWORD,
+      page: () =>  ChangePasswordView(),
+      binding: ChangePasswordBinding(),
     ),
   ];
 }

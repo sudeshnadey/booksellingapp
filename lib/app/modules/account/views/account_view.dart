@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:ssgc/app/modules/change_password/views/change_password_view.dart';
 import 'package:ssgc/app/modules/membership/views/membership_view.dart';
 import 'package:ssgc/app/modules/my_orders/views/my_orders_view.dart';
 import 'package:ssgc/app/modules/wishlist/views/wishlist_view.dart';
@@ -96,9 +97,14 @@ class AccountView extends GetView<AccountController> {
                 const AccountItems(
                     icon: Icons.military_tech_outlined,
                     title: "Refer & Get Points"),
-                const AccountItems(
-                  icon: Icons.lock_reset_outlined,
-                  title: "Change Password",
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => ChangePasswordView());
+                  },
+                  child: const AccountItems(
+                    icon: Icons.lock_reset_outlined,
+                    title: "Change Password",
+                  ),
                 ),
                 const AccountItems(
                   icon: Icons.info_outline,
