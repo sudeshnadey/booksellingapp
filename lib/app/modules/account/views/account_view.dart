@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:ssgc/app/modules/change_password/views/change_password_view.dart';
 import 'package:ssgc/app/modules/membership/views/membership_view.dart';
 import 'package:ssgc/app/modules/my_orders/views/my_orders_view.dart';
+import 'package:ssgc/app/modules/profile/views/profile_view.dart';
+import 'package:ssgc/app/modules/refer_and_earn/views/refer_and_earn_view.dart';
 import 'package:ssgc/app/modules/wishlist/views/wishlist_view.dart';
 
 import '../../../data/app_image.dart';
@@ -61,9 +63,14 @@ class AccountView extends GetView<AccountController> {
                 const SizedBox(
                   height: 10,
                 ),
-                const AccountItems(
-                  icon: Icons.person_2_outlined,
-                  title: "Profile",
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => ProfileView());
+                  },
+                  child: const AccountItems(
+                    icon: Icons.person_2_outlined,
+                    title: "Profile",
+                  ),
                 ),
                 GestureDetector(
                   onTap: () {
@@ -94,9 +101,14 @@ class AccountView extends GetView<AccountController> {
                     title: "Customer Support"),
                 const AccountItems(
                     icon: Icons.badge_outlined, title: "Earn Accounts"),
-                const AccountItems(
-                    icon: Icons.military_tech_outlined,
-                    title: "Refer & Get Points"),
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => ReferAndEarnView());
+                  },
+                  child: const AccountItems(
+                      icon: Icons.military_tech_outlined,
+                      title: "Refer & Get Points"),
+                ),
                 GestureDetector(
                   onTap: () {
                     Get.to(() => ChangePasswordView());

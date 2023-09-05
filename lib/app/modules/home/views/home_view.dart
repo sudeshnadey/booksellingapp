@@ -5,6 +5,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:ssgc/app/data/app_image.dart';
 import 'package:ssgc/app/modules/detail_page/views/detail_page_view.dart';
 import 'package:ssgc/app/modules/e_book_details/views/e_book_details_view.dart';
+import 'package:ssgc/app/modules/notification/views/notification_view.dart';
+import 'package:ssgc/app/modules/search_screen/views/search_screen_view.dart';
 import 'package:ssgc/app/utils/categories.dart';
 import 'package:ssgc/app/widgets/app_color.dart';
 
@@ -19,7 +21,68 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColor.backgroundColor,
+        backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
+        appBar: AppBar(
+          toolbarHeight: 55,
+          elevation: 2,
+          backgroundColor: AppColor.white,
+          title: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: BigText(text: "Book's "),
+          ),
+          actions: [
+            GestureDetector(
+              onTap: () {
+                Get.to(() => SearchScreenView());
+              },
+              child: Container(
+                  margin: const EdgeInsets.symmetric(vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  decoration: BoxDecoration(
+                      color: AppColor.mainColor,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 5,
+                            spreadRadius: 3,
+                            offset: Offset(1, 1)),
+                      ],
+                      borderRadius: BorderRadius.circular(10)),
+                  child: const Icon(
+                    Icons.search_outlined,
+                    color: Colors.white,
+                  )),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            GestureDetector(
+              onTap: () {
+                Get.to(() => NotificationView());
+              },
+              child: Container(
+                  margin: const EdgeInsets.symmetric(vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  decoration: BoxDecoration(
+                      color: AppColor.mainColor,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 5,
+                            spreadRadius: 3,
+                            offset: Offset(1, 1)),
+                      ],
+                      borderRadius: BorderRadius.circular(10)),
+                  child: const Icon(
+                    Icons.notifications_active_outlined,
+                    color: Colors.white,
+                  )),
+            ),
+            SizedBox(
+              width: 20,
+            ),
+          ],
+        ),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(10),
@@ -27,74 +90,64 @@ class HomeView extends GetView<HomeController> {
               SliverToBoxAdapter(
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        left: 10,
-                        right: 10,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          BigText(text: "Ghatana Chakra"),
-                          // const SizedBox(
-                          //   width: 70,
-                          // ),
-                          Row(
-                            children: [
-                              Container(
-                                  padding: const EdgeInsets.all(8),
-                                  decoration: BoxDecoration(
-                                      color: AppColor.mainColor,
-                                      boxShadow: const [
-                                        BoxShadow(
-                                            color: Colors.black12,
-                                            blurRadius: 5,
-                                            spreadRadius: 3,
-                                            offset: Offset(1, 1)),
-                                      ],
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: const Icon(
-                                    Icons.search_outlined,
-                                    color: Colors.white,
-                                  )),
-                              const SizedBox(
-                                width: 15,
-                              ),
-                              Container(
-                                  padding: const EdgeInsets.all(8),
-                                  decoration: BoxDecoration(
-                                      color: AppColor.mainColor,
-                                      boxShadow: const [
-                                        BoxShadow(
-                                            color: Colors.black12,
-                                            blurRadius: 5,
-                                            spreadRadius: 3,
-                                            offset: Offset(1, 1)),
-                                      ],
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: const Icon(
-                                    Icons.notifications_active_outlined,
-                                    color: Colors.white,
-                                  )),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    // SizedBox(
-                    //   height: 120,
-                    //   child: ScrollSnapList(
-                    //     initialIndex: 5,
-                    //     itemBuilder: _buildListItem,
-                    //     itemCount: Categories.categories.length,
-                    //     itemSize: 250,
-                    //     onItemFocus: (index) {},
-                    //     dynamicItemSize: true,
+                    // Padding(
+                    //   padding: const EdgeInsets.only(
+                    //     left: 10,
+                    //     right: 10,
+                    //   ),
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //     children: [
+                    //       BigText(text: "Ghatana Chakra"),
+                    //       // const SizedBox(
+                    //       //   width: 70,
+                    //       // ),
+                    //       Row(
+                    //         children: [
+                    //           Container(
+                    //               padding: const EdgeInsets.all(8),
+                    //               decoration: BoxDecoration(
+                    //                   color: AppColor.mainColor,
+                    //                   boxShadow: const [
+                    //                     BoxShadow(
+                    //                         color: Colors.black12,
+                    //                         blurRadius: 5,
+                    //                         spreadRadius: 3,
+                    //                         offset: Offset(1, 1)),
+                    //                   ],
+                    //                   borderRadius: BorderRadius.circular(10)),
+                    //               child: const Icon(
+                    //                 Icons.search_outlined,
+                    //                 color: Colors.white,
+                    //               )),
+                    //           const SizedBox(
+                    //             width: 15,
+                    //           ),
+                    //           Container(
+                    //               padding: const EdgeInsets.all(8),
+                    //               decoration: BoxDecoration(
+                    //                   color: AppColor.mainColor,
+                    //                   boxShadow: const [
+                    //                     BoxShadow(
+                    //                         color: Colors.black12,
+                    //                         blurRadius: 5,
+                    //                         spreadRadius: 3,
+                    //                         offset: Offset(1, 1)),
+                    //                   ],
+                    //                   borderRadius: BorderRadius.circular(10)),
+                    //               child: const Icon(
+                    //                 Icons.notifications_active_outlined,
+                    //                 color: Colors.white,
+                    //               )),
+                    //         ],
+                    //       )
+                    //     ],
                     //   ),
                     // ),
+                    // const SizedBox(
+                    //   height: 30,
+                    // ),
+
                     Column(
                       children: [
                         SizedBox(

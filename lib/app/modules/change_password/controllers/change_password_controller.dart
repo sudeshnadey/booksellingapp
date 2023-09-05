@@ -8,7 +8,9 @@ class ChangePasswordController extends GetxController {
   final confirmNewPasswordController = TextEditingController();
 
   @override
-  void onInit() {}
+  void onInit() {
+    super.onInit();
+  }
 
   @override
   void onReady() {

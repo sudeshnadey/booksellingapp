@@ -33,7 +33,7 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
                     spreadRadius: 3,
                     offset: Offset(1, 1)),
               ],
-              color: AppColor.backgroundColor,
+              color: AppColor.white,
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(25), topRight: Radius.circular(25))),
           // height: 65.sp,
@@ -43,7 +43,7 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
             showSelectedLabels: true,
             onTap: bcontroller.changeTabIndex,
             currentIndex: bcontroller.tabIndex.value,
-            backgroundColor: AppColor.backgroundColor,
+            backgroundColor: AppColor.white,
             unselectedItemColor: AppColor.black.withOpacity(0.4),
             selectedItemColor: AppColor.mainColor,
             iconSize: 25,
@@ -53,22 +53,22 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
               BottomNavigationBarItem(
                 icon: const Icon(Icons.home),
                 label: 'Home',
-                backgroundColor: AppColor.backgroundColor,
+                backgroundColor: AppColor.white,
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.category_rounded),
                 label: 'Purchase',
-                backgroundColor: AppColor.backgroundColor,
+                backgroundColor: AppColor.white,
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.shopping_cart_outlined),
                 label: 'Cart',
-                backgroundColor: AppColor.backgroundColor,
+                backgroundColor: AppColor.white,
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.menu),
                 label: 'Menu',
-                backgroundColor: AppColor.backgroundColor,
+                backgroundColor: AppColor.white,
               ),
             ],
           ),
@@ -120,7 +120,6 @@ class BottomNavigationBarView extends GetView<BottomNavigationBarController> {
                             exit(0);
                           },
                           style: ElevatedButton.styleFrom(
-                            
                               backgroundColor: AppColor.mainColor),
                           child: const Text("Yes"),
                         ),

@@ -20,6 +20,11 @@ abstract class Routes {
   static const REVIEWS = _Paths.REVIEWS;
   static const REVIEWS_ALL = _Paths.REVIEWS_ALL;
   static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
+  static const NOTIFICATION = _Paths.NOTIFICATION;
+  static const SEARCH_SCREEN = _Paths.SEARCH_SCREEN;
+  static const PROFILE = _Paths.PROFILE;
+  static const REFER_AND_POINTS = _Paths.REFER_AND_POINTS;
+  static const REFER_AND_EARN = _Paths.REFER_AND_EARN;
 }
 
 abstract class _Paths {
@@ -41,4 +46,9 @@ abstract class _Paths {
   static const REVIEWS = '/reviews';
   static const REVIEWS_ALL = '/reviews-all';
   static const CHANGE_PASSWORD = '/change-password';
+  static const NOTIFICATION = '/notification';
+  static const SEARCH_SCREEN = '/search-screen';
+  static const PROFILE = '/profile';
+  static const REFER_AND_POINTS = '/refer-and-points';
+  static const REFER_AND_EARN = '/refer-and-earn';
 }

@@ -69,7 +69,7 @@ class ReviewsAllView extends GetView<ReviewsAllController> {
                 height: 55,
                 decoration: BoxDecoration(
                     color: AppColor.mainColor,
-                    borderRadius: BorderRadius.circular(5)),
+                    borderRadius: BorderRadius.circular(10)),
                 child: Center(
                   child: BigText(
                     text: "ADD REVIEW",

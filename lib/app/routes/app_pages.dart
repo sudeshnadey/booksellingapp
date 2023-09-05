@@ -22,12 +22,20 @@ import '../modules/membership/bindings/membership_binding.dart';
 import '../modules/membership/views/membership_view.dart';
 import '../modules/my_orders/bindings/my_orders_binding.dart';
 import '../modules/my_orders/views/my_orders_view.dart';
+import '../modules/notification/bindings/notification_binding.dart';
+import '../modules/notification/views/notification_view.dart';
 import '../modules/product_detail/bindings/product_detail_binding.dart';
 import '../modules/product_detail/views/product_detail_view.dart';
+import '../modules/profile/bindings/profile_binding.dart';
+import '../modules/profile/views/profile_view.dart';
 import '../modules/purchase/bindings/purchase_binding.dart';
 import '../modules/purchase/views/purchase_view.dart';
+import '../modules/refer_and_earn/bindings/refer_and_earn_binding.dart';
+import '../modules/refer_and_earn/views/refer_and_earn_view.dart';
 import '../modules/reviews_all/bindings/reviews_all_binding.dart';
 import '../modules/reviews_all/views/reviews_all_view.dart';
+import '../modules/search_screen/bindings/search_screen_binding.dart';
+import '../modules/search_screen/views/search_screen_view.dart';
 import '../modules/wishlist/bindings/wishlist_binding.dart';
 import '../modules/wishlist/views/wishlist_view.dart';
 
@@ -120,8 +128,29 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.CHANGE_PASSWORD,
-      page: () =>  ChangePasswordView(),
+      page: () => ChangePasswordView(),
       binding: ChangePasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFICATION,
+      page: () => const NotificationView(),
+      binding: NotificationBinding(),
+    ),
+    GetPage(
+      name: _Paths.SEARCH_SCREEN,
+      page: () => SearchScreenView(),
+      binding: SearchScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () => ProfileView(),
+      binding: ProfileBinding(),
+    ),
+  
+    GetPage(
+      name: _Paths.REFER_AND_EARN,
+      page: () => const ReferAndEarnView(),
+      binding: ReferAndEarnBinding(),
     ),
   ];
 }

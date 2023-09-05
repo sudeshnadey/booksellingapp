@@ -24,4 +24,6 @@ class AppImage {
   static var empty_cart = "assets/images/empty_cart.png";
   static var wishlist = "assets/images/wishlist.png";
   static var person = "assets/images/person.png";
+  static var notification = "assets/images/notification.png";
+  static var refer = "assets/images/refer.png";
 }
