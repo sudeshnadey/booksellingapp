@@ -25,6 +25,10 @@ abstract class Routes {
   static const PROFILE = _Paths.PROFILE;
   static const REFER_AND_POINTS = _Paths.REFER_AND_POINTS;
   static const REFER_AND_EARN = _Paths.REFER_AND_EARN;
+  static const CUSTOMER_SUPPORT = _Paths.CUSTOMER_SUPPORT;
+  static const EARN_ACCOUNTS = _Paths.EARN_ACCOUNTS;
+  static const LOGIN = _Paths.LOGIN;
+  static const SUGGESTION_PRODUCTS = _Paths.SUGGESTION_PRODUCTS;
 }
 
 abstract class _Paths {
@@ -51,4 +55,8 @@ abstract class _Paths {
   static const PROFILE = '/profile';
   static const REFER_AND_POINTS = '/refer-and-points';
   static const REFER_AND_EARN = '/refer-and-earn';
+  static const CUSTOMER_SUPPORT = '/customer-support';
+  static const EARN_ACCOUNTS = '/earn-accounts';
+  static const LOGIN = '/login';
+  static const SUGGESTION_PRODUCTS = '/suggestion-products';
 }

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:ssgc/app/modules/reviews_all/views/reviews_all_view.dart';
+import 'package:ssgc/app/modules/suggestion_products/views/suggestion_products_view.dart';
 import 'package:ssgc/app/widgets/rating.dart';
 import 'package:ssgc/app/widgets/reviews.dart';
 
@@ -68,7 +69,6 @@ class EBookDetailsView extends GetView<EBookDetailsController> {
               ),
               // introduction content
               Container(
-                // padding: const EdgeInsets.only(left: 15, right: 15, top: 20),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,7 +118,7 @@ class EBookDetailsView extends GetView<EBookDetailsController> {
                       height: 20,
                     ),
                     Container(
-                      margin: EdgeInsets.all(5),
+                      margin: const EdgeInsets.all(5),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 5, vertical: 10),
                       decoration: BoxDecoration(
@@ -158,7 +158,7 @@ class EBookDetailsView extends GetView<EBookDetailsController> {
                                   size: 14,
                                 ),
                               ),
-                              Rating(
+                              const Rating(
                                 rating: 4,
                               ),
                               SmallText(
@@ -177,6 +177,12 @@ class EBookDetailsView extends GetView<EBookDetailsController> {
               const SizedBox(
                 height: 20,
               ),
+
+              const SuggestionProductsView(text: "Related Product"),
+              const SuggestionProductsView(text: "Recently Viewed"),
+              const SizedBox(
+                height: 20,
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -190,13 +196,13 @@ class EBookDetailsView extends GetView<EBookDetailsController> {
                   ),
                   Row(
                     children: [
-                      Rating(
+                      const Rating(
                         rating: 4,
                       ),
                       SmallText(text: "4.0 Out of 5")
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   const Divider(
@@ -219,7 +225,7 @@ class EBookDetailsView extends GetView<EBookDetailsController> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => ReviewsAllView());
+                      Get.to(() => const ReviewsAllView());
                     },
                     child: SmallText(
                       text: "View All",
@@ -229,24 +235,25 @@ class EBookDetailsView extends GetView<EBookDetailsController> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Reviews(
+              const Reviews(
                 name: "Tushar",
                 comment: "Nice",
                 rating: 4,
               ),
-              Reviews(
+              const Reviews(
                 name: "Sakshi",
                 comment: "Good",
                 rating: 3,
-              ), Reviews(
+              ),
+              const Reviews(
                 name: "Tushar",
                 comment: "Nice",
                 rating: 4,
               ),
-              Reviews(
+              const Reviews(
                 name: "Sakshi",
                 comment: "Good",
                 rating: 3,
@@ -257,6 +264,47 @@ class EBookDetailsView extends GetView<EBookDetailsController> {
               ),
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        // height: 70,
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        decoration: BoxDecoration(color: Colors.white),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: EdgeInsets.all(20.r),
+              height: 55,
+              width: Get.width / 2.2,
+              decoration: BoxDecoration(
+                  color: AppColor.white,
+                  border: Border.all(color: AppColor.mainColor),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Center(
+                child: BigText(
+                  text: "ADD TO CART",
+                  color: AppColor.mainColor,
+                  size: 14,
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(20),
+              height: 55,
+              width: Get.width / 2.2,
+              decoration: BoxDecoration(
+                  color: AppColor.mainColor,
+                  borderRadius: BorderRadius.circular(10)),
+              child: Center(
+                child: BigText(
+                  text: "BUY NOW",
+                  color: Colors.white,
+                  size: 14,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

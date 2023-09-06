@@ -194,6 +194,7 @@ class HomeView extends GetView<HomeController> {
                   ],
                 ),
               ),
+              // here fetch data from api 
               SliverPadding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 sliver: SliverGrid(

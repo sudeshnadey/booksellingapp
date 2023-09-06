@@ -43,6 +43,7 @@ class CatalogProductView extends GetView<CatalogProductController> {
                 ],
               ),
             ),
+            // here fetch data from api
             Container(
               height: 210,
               child: ListView.builder(

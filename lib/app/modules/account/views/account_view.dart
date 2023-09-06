@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:ssgc/app/modules/change_password/views/change_password_view.dart';
+import 'package:ssgc/app/modules/customer_support/views/customer_support_view.dart';
+import 'package:ssgc/app/modules/earn_accounts/views/earn_accounts_view.dart';
 import 'package:ssgc/app/modules/membership/views/membership_view.dart';
 import 'package:ssgc/app/modules/my_orders/views/my_orders_view.dart';
 import 'package:ssgc/app/modules/profile/views/profile_view.dart';
 import 'package:ssgc/app/modules/refer_and_earn/views/refer_and_earn_view.dart';
 import 'package:ssgc/app/modules/wishlist/views/wishlist_view.dart';
+import 'package:ssgc/app/screens/about_us.dart';
 
 import '../../../data/app_image.dart';
 import '../../../widgets/account_items.dart';
@@ -96,11 +99,21 @@ class AccountView extends GetView<AccountController> {
                       icon: Icons.favorite_border_outlined,
                       title: "Wishlist/Save for later"),
                 ),
-                const AccountItems(
-                    icon: Icons.support_agent_outlined,
-                    title: "Customer Support"),
-                const AccountItems(
-                    icon: Icons.badge_outlined, title: "Earn Accounts"),
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => CustomerSupportView());
+                  },
+                  child: const AccountItems(
+                      icon: Icons.support_agent_outlined,
+                      title: "Customer Support"),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => EarnAccountsView());
+                  },
+                  child: const AccountItems(
+                      icon: Icons.badge_outlined, title: "Earn Accounts"),
+                ),
                 GestureDetector(
                   onTap: () {
                     Get.to(() => ReferAndEarnView());
@@ -118,9 +131,14 @@ class AccountView extends GetView<AccountController> {
                     title: "Change Password",
                   ),
                 ),
-                const AccountItems(
-                  icon: Icons.info_outline,
-                  title: "About Us",
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => AboutUs());
+                  },
+                  child: const AccountItems(
+                    icon: Icons.info_outline,
+                    title: "About Us",
+                  ),
                 ),
                 const AccountItems(
                   icon: Icons.help_outline,

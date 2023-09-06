@@ -12,12 +12,18 @@ import '../modules/catalog_product/bindings/catalog_product_binding.dart';
 import '../modules/catalog_product/views/catalog_product_view.dart';
 import '../modules/change_password/bindings/change_password_binding.dart';
 import '../modules/change_password/views/change_password_view.dart';
+import '../modules/customer_support/bindings/customer_support_binding.dart';
+import '../modules/customer_support/views/customer_support_view.dart';
 import '../modules/detail_page/bindings/detail_page_binding.dart';
 import '../modules/detail_page/views/detail_page_view.dart';
 import '../modules/e_book_details/bindings/e_book_details_binding.dart';
 import '../modules/e_book_details/views/e_book_details_view.dart';
+import '../modules/earn_accounts/bindings/earn_accounts_binding.dart';
+import '../modules/earn_accounts/views/earn_accounts_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/login/bindings/login_binding.dart';
+import '../modules/login/views/login_view.dart';
 import '../modules/membership/bindings/membership_binding.dart';
 import '../modules/membership/views/membership_view.dart';
 import '../modules/my_orders/bindings/my_orders_binding.dart';
@@ -36,6 +42,8 @@ import '../modules/reviews_all/bindings/reviews_all_binding.dart';
 import '../modules/reviews_all/views/reviews_all_view.dart';
 import '../modules/search_screen/bindings/search_screen_binding.dart';
 import '../modules/search_screen/views/search_screen_view.dart';
+import '../modules/suggestion_products/bindings/suggestion_products_binding.dart';
+import '../modules/suggestion_products/views/suggestion_products_view.dart';
 import '../modules/wishlist/bindings/wishlist_binding.dart';
 import '../modules/wishlist/views/wishlist_view.dart';
 
@@ -44,7 +52,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.BOTTOM_NAVIGATION_BAR;
+  static const INITIAL = Routes.LOGIN;
 
   static final routes = [
     GetPage(
@@ -146,11 +154,32 @@ class AppPages {
       page: () => ProfileView(),
       binding: ProfileBinding(),
     ),
-  
     GetPage(
       name: _Paths.REFER_AND_EARN,
       page: () => const ReferAndEarnView(),
       binding: ReferAndEarnBinding(),
+    ),
+    GetPage(
+      name: _Paths.CUSTOMER_SUPPORT,
+      page: () => CustomerSupportView(),
+      binding: CustomerSupportBinding(),
+    ),
+    GetPage(
+      name: _Paths.EARN_ACCOUNTS,
+      page: () => EarnAccountsView(),
+      binding: EarnAccountsBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOGIN,
+      page: () => LoginView(),
+      binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.SUGGESTION_PRODUCTS,
+      page: () => SuggestionProductsView(
+        text: '',
+      ),
+      binding: SuggestionProductsBinding(),
     ),
   ];
 }

@@ -26,4 +26,7 @@ class AppImage {
   static var person = "assets/images/person.png";
   static var notification = "assets/images/notification.png";
   static var refer = "assets/images/refer.png";
+
+  static var google = "assets/images/google.png";
+  static var facebook = "assets/images/facebook.png";
 }
