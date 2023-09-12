@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:ssgc/app/modules/catalog_product/views/catalog_product_view.dart';
 import 'package:ssgc/app/widgets/app_color.dart';
@@ -17,7 +16,7 @@ class DetailPageView extends GetView<DetailPageController> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
-          title: BigText(text: "Current Details"),
+          title: BigText(text: "SHOP OUR BOOKS"),
           centerTitle: true,
           leading: IconButton(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -27,16 +26,6 @@ class DetailPageView extends GetView<DetailPageController> {
               Get.back();
             },
           ),
-          actions: [
-            IconButton(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              icon: const Icon(Icons.bookmark_border_outlined),
-              color: Colors.black,
-              onPressed: () {
-                print("BookMarked!!");
-              },
-            ),
-          ],
           bottom: TabBar(
             indicatorSize: TabBarIndicatorSize.label,
             indicatorColor: AppColor.mainColor,
@@ -49,7 +38,7 @@ class DetailPageView extends GetView<DetailPageController> {
             //     color: AppColor.mainColor),
             tabs: const [
               Tab(
-                text: "All",
+                text: "New release",
               ),
               Tab(
                 text: "New",

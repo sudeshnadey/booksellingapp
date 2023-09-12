@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:get/get.dart';
 import 'package:ssgc/app/widgets/app_color.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../data/app_image.dart';
 import '../../../widgets/text.dart';
@@ -10,6 +10,7 @@ import '../controllers/product_detail_controller.dart';
 
 class ProductDetailView extends GetView<ProductDetailController> {
   const ProductDetailView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +18,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: BigText(text: "Current Details"),
+        title: BigText(text: "Books Details"),
         centerTitle: true,
         leading: IconButton(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -27,35 +28,25 @@ class ProductDetailView extends GetView<ProductDetailController> {
             Get.back();
           },
         ),
-        actions: [
-          IconButton(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            icon: const Icon(Icons.bookmark_border_outlined),
-            color: Colors.black,
-            onPressed: () {
-              print("BookMarked!!");
-            },
-          ),
-        ],
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColor.mainColor,
         onPressed: () {},
-        child: Icon(
+        child: const Icon(
           Icons.question_answer_rounded,
-          color: AppColor.white,
+          color: Colors.white,
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             Container(
-              width: double.maxFinite,
+              width: 210.w,
               height: 250.h,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage(AppImage.demo),
+                  image: AssetImage(AppImage.book1),
                 ),
               ),
             ),
@@ -69,14 +60,14 @@ class ProductDetailView extends GetView<ProductDetailController> {
                   Row(
                     children: [
                       SmallText(
-                        text: "Posted At: ",
-                        color: Colors.red,
-                        size: 13,
+                        text: "Sale Price: \u{20B9} ",
+                        color: Colors.green,
+                        size: 16,
                       ),
                       SmallText(
-                        text: " 01 Sep 2023",
+                        text: " 140",
                         color: Colors.grey,
-                        size: 13,
+                        size: 17,
                       ),
                     ],
                   ),
@@ -137,7 +128,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
@@ -151,17 +142,41 @@ class ProductDetailView extends GetView<ProductDetailController> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             SmallText(
               text: "No Comment Found",
               size: 13,
             ),
-            // tabs section
-            const SizedBox(
-              height: 50,
-            )
+            // "Buy Now" button
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Add your "Buy Now" button action here
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColor.mainColor,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      var linkurl = Uri.parse(
+                          "https://firebasestorage.googleapis.com/v0/b/suranjan-bhattacharjee.appspot.com/o/GS%20Practice%20Work%20Book-2023-24.PDF?alt=media&token=40776843-2f7b-4844-aa9f-ddd0f8490117");
+                      launchUrl(linkurl, mode: LaunchMode.externalApplication,);
+                    },
+                    child: const Text(
+                      "Download Pdf",
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+
+                      // Customize the button text color
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -177,20 +192,25 @@ class AboutText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RichText(
-        text: TextSpan(children: [
-      TextSpan(
-          text: '\u2022 ${title}',
-          style: const TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 14,
-            color: Colors.black,
-          )),
-      TextSpan(
-          text: description,
-          style: TextStyle(
-            color: Colors.grey.shade800,
-            fontSize: 14,
-          )),
-    ]));
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: '\u2022 $title',
+            style: const TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 14,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: description,
+            style: TextStyle(
+              color: Colors.grey.shade800,
+              fontSize: 14,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

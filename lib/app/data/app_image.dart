@@ -7,6 +7,7 @@ class AppImage {
   static var red_bull = "assets/images/red_bull.jpg";
 
   static var book = "assets/images/books.jpg";
+  static var book1 = "assets/images/book1.png";
   static var courses = "assets/images/courses.jpg";
   static var ebook = "assets/images/ebook.jpg";
   static var errata = "assets/images/errata.jpg";
