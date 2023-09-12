@@ -29,4 +29,5 @@ class AppImage {
 
   static var google = "assets/images/google.png";
   static var facebook = "assets/images/facebook.png";
+  static var banner1 = "assets/images/bannerimage.png";
 }

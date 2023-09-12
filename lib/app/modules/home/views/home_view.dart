@@ -1,10 +1,10 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:ssgc/app/data/app_image.dart';
 import 'package:ssgc/app/modules/detail_page/views/detail_page_view.dart';
-import 'package:ssgc/app/modules/e_book_details/views/e_book_details_view.dart';
 import 'package:ssgc/app/modules/notification/views/notification_view.dart';
 import 'package:ssgc/app/modules/search_screen/views/search_screen_view.dart';
 import 'package:ssgc/app/utils/categories.dart';
@@ -16,7 +16,13 @@ import '../controllers/home_controller.dart';
 // ignore: must_be_immutable
 class HomeView extends GetView<HomeController> {
   HomeController homeController = Get.put(HomeController());
+  final PageController _pageController = PageController();
   HomeView({Key? key}) : super(key: key);
+  List<String> yourImageList = [
+    'assets/images/banner.jpg',
+    'assets/images/bannerimage.png',
+    'assets/images/books.jpg',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +34,7 @@ class HomeView extends GetView<HomeController> {
           backgroundColor: AppColor.white,
           title: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: BigText(text: "Book's "),
+            child: BigText(text: "Ojhavani Publications"),
           ),
           actions: [
             GestureDetector(
@@ -53,12 +59,12 @@ class HomeView extends GetView<HomeController> {
                     color: Colors.white,
                   )),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             GestureDetector(
               onTap: () {
-                Get.to(() => NotificationView());
+                Get.to(() => const NotificationView());
               },
               child: Container(
                   margin: const EdgeInsets.symmetric(vertical: 8.0),
@@ -78,7 +84,7 @@ class HomeView extends GetView<HomeController> {
                     color: Colors.white,
                   )),
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
           ],
@@ -152,34 +158,40 @@ class HomeView extends GetView<HomeController> {
                       children: [
                         SizedBox(
                           height: 200,
-                          child: PageView.builder(
-                              controller: homeController.controller,
-                              itemBuilder: (context, index) {
-                                return GestureDetector(
-                                  onTap: () {
-                                    Get.to(() => const EBookDetailsView());
-                                  },
-                                  child: SizedBox(
-                                    child: Card(
-                                      child: ClipRRect(
-                                        borderRadius: const BorderRadius.all(
-                                            Radius.circular(10)),
-                                        child: Image.asset(
-                                          AppImage.banner,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
+                          width: 800.w,
+                          child: CarouselSlider(
+                            items: yourImageList.map((imagePath) {
+                              return GestureDetector(
+                                onTap: () {
+                                  // Handle tap on the image if needed
+                                },
+                                child: Card(
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image.asset(
+                                      imagePath,
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                );
-                              }),
+                                ),
+                              );
+                            }).toList(),
+                            options: CarouselOptions(
+                              autoPlay: true,
+                              enlargeCenterPage: true,
+                              aspectRatio: 2.0,
+                              viewportFraction: 1.75,
+                              enableInfiniteScroll: true,
+                              autoPlayInterval: const Duration(seconds: 3),
+                            ),
+                          ),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
                         SmoothPageIndicator(
                           controller: homeController.controller,
-                          count: 10,
+                          count: yourImageList.length,
                           effect: ExpandingDotsEffect(
                               activeDotColor: AppColor.mainColor,
                               dotColor: Colors.grey,
@@ -194,14 +206,14 @@ class HomeView extends GetView<HomeController> {
                   ],
                 ),
               ),
-              // here fetch data from api 
+              // here fetch data from api
               SliverPadding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 sliver: SliverGrid(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    mainAxisSpacing: 15,
-                    crossAxisSpacing: 15,
+                    // mainAxisSpacing: 5,
+                    crossAxisSpacing: 12,
                     childAspectRatio: 0.75,
                   ),
                   delegate: SliverChildBuilderDelegate(

@@ -5,23 +5,14 @@ class HomeController extends GetxController {
   //TODO: Implement HomeController
 
   final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-    
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
 
   void increment() => count.value++;
 
   var controller = PageController();
+
+  // List<String> yourImageList = [
+  //   'assets/image1.jpg',
+  //   'assets/image2.jpg',
+  //   'assets/image3.jpg',
+  // ];
 }

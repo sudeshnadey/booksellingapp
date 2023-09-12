@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:ssgc/app/widgets/text.dart';
 
@@ -17,6 +16,15 @@ class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 55,
+          elevation: 2,
+          backgroundColor: AppColor.white,
+          title: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Center(child: BigText(text: "Ojhavani Publications")),
+          ),
+        ),
         backgroundColor: Colors.white,
         body: SafeArea(
           child: SingleChildScrollView(
@@ -26,7 +34,7 @@ class LoginView extends GetView<LoginController> {
                   height: 25,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
                     children: [
                       BigText(
@@ -66,11 +74,11 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
                     children: [
                       SmallText(
@@ -92,7 +100,7 @@ class LoginView extends GetView<LoginController> {
                   child: Padding(
                     padding: const EdgeInsets.all(10),
                     child: Container(
-                      padding: EdgeInsets.all(20),
+                      padding: const EdgeInsets.all(20),
                       height: 55,
                       decoration: BoxDecoration(
                           color: Colors.grey,

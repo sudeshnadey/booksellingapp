@@ -11,7 +11,7 @@ class Categories {
 
   static List<Categories> categories = [
     Categories(title: "Current News", imageUrl: AppImage.newspaper.toString()),
-    Categories(title: "Online Quize", imageUrl: AppImage.quize.toString()),
+    Categories(title: "Online Quiz", imageUrl: AppImage.quize.toString()),
     Categories(title: "Books", imageUrl: AppImage.book.toString()),
     Categories(title: "E-Books", imageUrl: AppImage.ebook.toString()),
     Categories(
