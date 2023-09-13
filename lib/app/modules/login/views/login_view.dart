@@ -22,7 +22,8 @@ class LoginView extends GetView<LoginController> {
           backgroundColor: AppColor.white,
           title: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Center(child: BigText(text: "Ojhavani Publications")),
+            child:
+                Center(child: BigText(text: "Baudhik Prakashan Pariksha Vani")),
           ),
         ),
         backgroundColor: Colors.white,

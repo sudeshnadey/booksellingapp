@@ -19,9 +19,9 @@ class HomeView extends GetView<HomeController> {
   final PageController _pageController = PageController();
   HomeView({Key? key}) : super(key: key);
   List<String> yourImageList = [
-    'assets/images/banner.jpg',
+    'assets/images/banner.png',
     'assets/images/bannerimage.png',
-    'assets/images/books.jpg',
+    'assets/images/book1.png',
   ];
 
   @override
@@ -33,8 +33,11 @@ class HomeView extends GetView<HomeController> {
           elevation: 2,
           backgroundColor: AppColor.white,
           title: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: BigText(text: "Ojhavani Publications"),
+            padding: const EdgeInsets.symmetric(horizontal: 2.0),
+            child: BigText(
+              text: "Baudhik Prakashan Pariksha Vani",
+              size: 15,
+            ),
           ),
           actions: [
             GestureDetector(
@@ -158,7 +161,7 @@ class HomeView extends GetView<HomeController> {
                       children: [
                         SizedBox(
                           height: 200,
-                          width: 800.w,
+                          width: 900.w,
                           child: CarouselSlider(
                             items: yourImageList.map((imagePath) {
                               return GestureDetector(
