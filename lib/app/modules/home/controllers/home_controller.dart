@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ssgc/app/data/api_exception_handler/dio_expeption.dart';
 import 'package:ssgc/app/data/models/banner/banner.dart';
+import 'package:ssgc/app/data/urls.dart';
 
 class HomeController extends GetxController {
   @override
@@ -13,10 +17,7 @@ class HomeController extends GetxController {
   var controller = PageController();
   var isLoading = false;
   List<Banners> banners = [];
-
   static const int timeOutDuration = 100;
-  String url =
-      "https://api.bhattacharjeesolution.in/book/api/user-show-banner.php";
 
   getProducts() async {
     isLoading = true;
@@ -28,12 +29,9 @@ class HomeController extends GetxController {
           sendTimeout: const Duration(seconds: timeOutDuration * 1000),
         ),
       );
-      // dio.options.headers['token'] =
-      //     'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXNlciIsInBob25lIjoiMTIzNDQzNDM0In0.YTWuqWB4mZT8mTlheoPj4YgHLXJwbPcr1f5jq1Em_VI';
       dynamic response = await dio.get(
-        url,
+        Urls.bannerUrl,
       );
-
       List<Banners> tempBanners =
           (response.data as List).map((x) => Banners.fromJson(x)).toList();
       banners.addAll(tempBanners);
@@ -42,9 +40,10 @@ class HomeController extends GetxController {
       return tempBanners;
     } on DioException catch (ex) {
       isLoading = false;
+      final errorMessage = DioExceptions.fromDioError(ex);
       return Get.snackbar(
         'Error',
-        ex.message ?? "",
+        errorMessage.message,
         snackPosition: SnackPosition.BOTTOM,
       );
     }
