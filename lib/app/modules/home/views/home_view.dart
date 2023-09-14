@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:ssgc/app/data/app_image.dart';
 import 'package:ssgc/app/modules/detail_page/views/detail_page_view.dart';
@@ -156,55 +157,72 @@ class HomeView extends GetView<HomeController> {
                     // const SizedBox(
                     //   height: 30,
                     // ),
-
-                    Column(
-                      children: [
-                        SizedBox(
-                          height: 200,
-                          width: 900.w,
-                          child: CarouselSlider(
-                            items: yourImageList.map((imagePath) {
-                              return GestureDetector(
-                                onTap: () {
-                                  // Handle tap on the image if needed
-                                },
-                                child: Card(
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: Image.asset(
-                                      imagePath,
-                                      fit: BoxFit.cover,
+                    GetBuilder<HomeController>(
+                      builder: (controller) {
+                        return controller.isLoading == false
+                            ? Column(
+                                children: [
+                                  SizedBox(
+                                    height: 200,
+                                    width: 900.w,
+                                    child: CarouselSlider(
+                                      items:
+                                          controller.banners.map((imagePath) {
+                                        return GestureDetector(
+                                          onTap: () {
+                                            // Handle tap on the image if needed
+                                          },
+                                          child: Card(
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              child: Image.network(
+                                                imagePath.image,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }).toList(),
+                                      options: CarouselOptions(
+                                        autoPlay: true,
+                                        enlargeCenterPage: true,
+                                        aspectRatio: 2.0,
+                                        viewportFraction: 1.75,
+                                        enableInfiniteScroll: true,
+                                        autoPlayInterval:
+                                            const Duration(seconds: 3),
+                                      ),
                                     ),
                                   ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  SmoothPageIndicator(
+                                    controller: homeController.controller,
+                                    count: yourImageList.length,
+                                    effect: ExpandingDotsEffect(
+                                        activeDotColor: AppColor.mainColor,
+                                        dotColor: Colors.grey,
+                                        dotHeight: 8,
+                                        dotWidth: 8),
+                                  ),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                ],
+                              )
+                            : Shimmer.fromColors(
+                                baseColor: Color.fromARGB(255, 1, 143, 127),
+                                highlightColor:
+                                    Color.fromARGB(255, 68, 164, 172),
+                                enabled: true,
+                                child: SizedBox(
+                                  height: 200,
+                                  width: 900.w,
                                 ),
                               );
-                            }).toList(),
-                            options: CarouselOptions(
-                              autoPlay: true,
-                              enlargeCenterPage: true,
-                              aspectRatio: 2.0,
-                              viewportFraction: 1.75,
-                              enableInfiniteScroll: true,
-                              autoPlayInterval: const Duration(seconds: 3),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        SmoothPageIndicator(
-                          controller: homeController.controller,
-                          count: yourImageList.length,
-                          effect: ExpandingDotsEffect(
-                              activeDotColor: AppColor.mainColor,
-                              dotColor: Colors.grey,
-                              dotHeight: 8,
-                              dotWidth: 8),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                      ],
+                      },
                     )
                   ],
                 ),
